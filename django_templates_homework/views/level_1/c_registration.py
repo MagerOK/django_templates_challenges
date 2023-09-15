@@ -15,4 +15,4 @@ from django.shortcuts import render
 def registration_view(request):
     title = 'Регистрация'
 
-    return render(request, 'registration.html')  # код писать тут
+    return render(request, 'registration.html', context={'title': title})

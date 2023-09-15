@@ -12,5 +12,5 @@ from django.shortcuts import render
 
 
 def admin_page_view(request):
-    is_admin = False
+    is_admin = True
     return render(request, 'admin_page.html', context={'is_admin': is_admin})
