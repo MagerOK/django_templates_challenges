@@ -6,6 +6,8 @@
 </head>
 <body>
     <h1>Список студентов</h1>
-    <!-- Здесь должен быть ваш код с использованием цикла for -->
+    {% for student in students %}
+        <p>{{ student }}</p>
+    {% endfor %}
 </body>
 </html>
