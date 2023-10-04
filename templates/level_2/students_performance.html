@@ -10,27 +10,27 @@
     <main class="container">
       <article>
         <table>
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Week 1 completed</th>
-              <th scope="col">Week 2 completed</th>
-              <th scope="col">Week 3 completed</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Jack</th>
-              <td>✅</td>
-              <td>✅</td>
-              <td>❌</td>
-            </tr>
-            <tr>
-              <th scope="row">Jill</th>
-              <td>❌</td>
-              <td>❌</td>
-              <td>✅</td>
-            </tr>
+          {% if performances %}
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Week 1 completed</th>
+                <th scope="col">Week 2 completed</th>
+                <th scope="col">Week 3 completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for student in performances %}
+                <tr>
+                  <th scope="row">{{student.student_name}}</th>
+                  <td>{% if student.week1_completed %}✅{% else %}❌{% endif %}</td>
+                  <td>{% if student.week2_completed %}✅{% else %}❌{% endif %}</td>
+                  <td>{% if student.week3_completed %}✅{% else %}❌{% endif %}</td>
+                </tr>
+              {% endfor %}
+          {% else %}
+          <h1>There are no students.</h1>
+          {% endif %}
           </tbody>
         </table>
       </article>
