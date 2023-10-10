@@ -17,19 +17,30 @@
       <div class="grid">
         <div>
           <h4>К выполнению</h4>
-          <article class="card">Задача 1</article>
-          <article class="card">Задача 2</article>
-          <article class="card">Задача 3</article>
-        </div>
+          {% for task in tasks %}
+            {% if task.status == 'todo' %}
+             <article class="card">{{ task.title }}</article>
+            {% endif %}
+          {% endfor %}
+          </div>
         <div>
           <h4>В процессе</h4>
-          <article class="card">Задача 4</article>
+          {% for task in tasks %}
+            {% if task.status == 'in_progress' %}
+              <article class="card">{{ task.title }}</article>
+            {% endif %}
+          {% endfor %}
         </div>
         <div>
           <h4>Выполнено</h4>
-          <article class="card">Задача 5</article>
+          {% for task in tasks %}
+            {% if task.status == 'done' %}
+              <article class="card">{{ task.title }}</article>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
+
     </main>
   </body>
 </html>
